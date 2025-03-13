@@ -1,0 +1,7 @@
+2025-03-13 15:02:51,825 - database - INFO - Database saved to users.json
+2025-03-13 15:02:51,826 - database - INFO - Created new database with default admin user
+2025-03-13 15:04:53,266 - database - INFO - Database loaded from users.json
+2025-03-13 15:05:14,802 - database - INFO - User admin authenticated successfully
+2025-03-13 15:09:22,293 - database - INFO - Database saved to users.json
+2025-03-13 15:09:22,293 - database - INFO - Added new user adnan with role user
+2025-03-13 15:09:36,589 - database - INFO - User adnan authenticated successfully

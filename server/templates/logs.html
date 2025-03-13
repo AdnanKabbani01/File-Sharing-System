@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Logs - File Sharing System{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-journal-text me-2"></i>System Logs</h2>
+    <div class="btn-group">
+        <a href="{{ url_for('logs', type='web_server') }}" class="btn btn-outline-primary {% if log_type == 'web_server' %}active{% endif %}">
+            Web Server
+        </a>
+        <a href="{{ url_for('logs', type='server') }}" class="btn btn-outline-primary {% if log_type == 'server' %}active{% endif %}">
+            Socket Server
+        </a>
+        <a href="{{ url_for('logs', type='database') }}" class="btn btn-outline-primary {% if log_type == 'database' %}active{% endif %}">
+            Database
+        </a>
+    </div>
+</div>
+
+<div class="card shadow">
+    <div class="card-header bg-light d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">{{ log_type|capitalize }} Logs</h5>
+        <small class="text-muted">Showing most recent entries first (max 100)</small>
+    </div>
+    <div class="card-body">
+        {% if log_content %}
+        <div class="logs-container bg-dark text-light p-3 rounded" style="max-height: 600px; overflow-y: auto; font-family: monospace;">
+            {% for line in log_content %}
+            <div class="log-entry">
+                {% if 'ERROR' in line %}
+                <span class="text-danger">{{ line }}</span>
+                {% elif 'WARNING' in line %}
+                <span class="text-warning">{{ line }}</span>
+                {% elif 'INFO' in line %}
+                <span class="text-info">{{ line }}</span>
+                {% else %}
+                <span>{{ line }}</span>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-info">
+            <i class="bi bi-info-circle me-2"></i>No log entries found.
+        </div>
+        {% endif %}
+    </div>
+    <div class="card-footer">
+        <a href="{{ url_for('logs', type=log_type) }}" class="btn btn-primary">
+            <i class="bi bi-arrow-clockwise me-2"></i>Refresh
+        </a>
+    </div>
+</div>
+{% endblock %} 

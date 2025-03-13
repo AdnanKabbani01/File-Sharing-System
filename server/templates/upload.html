@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}Upload - File Sharing System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="bi bi-upload me-2"></i>Upload File</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" action="{{ url_for('upload') }}" enctype="multipart/form-data" id="uploadForm">
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Select File</label>
+                        <input type="file" class="form-control" id="file" name="file" required>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="overwrite" name="overwrite" value="true">
+                        <label class="form-check-label" for="overwrite">Overwrite if file exists</label>
+                    </div>
+                    
+                    <div id="progressContainer" class="mb-3 d-none">
+                        <label class="form-label">Upload Progress</label>
+                        <div class="progress">
+                            <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" 
+                                 role="progressbar" style="width: 0%"></div>
+                        </div>
+                        <small id="progressText" class="form-text text-muted mt-1">0%</small>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="{{ url_for('files') }}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>Back to Files
+                        </a>
+                        <button type="submit" class="btn btn-primary" id="uploadButton">
+                            <i class="bi bi-upload me-2"></i>Upload
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('uploadForm');
+        const fileInput = document.getElementById('file');
+        const uploadButton = document.getElementById('uploadButton');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+        
+        form.addEventListener('submit', function(e) {
+            // Check if file is selected
+            if (!fileInput.files.length) {
+                return;
+            }
+            
+            // Show progress bar
+            progressContainer.classList.remove('d-none');
+            uploadButton.disabled = true;
+            
+            // Set initial progress
+            progressBar.style.width = '0%';
+            progressText.textContent = '0%';
+            
+            // Create FormData object
+            const formData = new FormData(form);
+            const xhr = new XMLHttpRequest();
+            
+            // Track upload progress
+            xhr.upload.addEventListener('progress', function(e) {
+                if (e.lengthComputable) {
+                    const percentComplete = Math.round((e.loaded / e.total) * 100);
+                    progressBar.style.width = percentComplete + '%';
+                    progressText.textContent = percentComplete + '%';
+                }
+            });
+            
+            // Handle upload completion
+            xhr.addEventListener('load', function() {
+                if (xhr.status === 200) {
+                    progressBar.classList.remove('progress-bar-animated');
+                    progressBar.classList.add('bg-success');
+                    progressText.textContent = 'Upload complete! Redirecting...';
+                    
+                    // Redirect to files page
+                    setTimeout(function() {
+                        window.location.href = "{{ url_for('files') }}";
+                    }, 1000);
+                } else {
+                    progressBar.classList.remove('progress-bar-animated');
+                    progressBar.classList.add('bg-danger');
+                    progressText.textContent = 'Upload failed!';
+                    uploadButton.disabled = false;
+                }
+            });
+            
+            // Handle upload error
+            xhr.addEventListener('error', function() {
+                progressBar.classList.remove('progress-bar-animated');
+                progressBar.classList.add('bg-danger');
+                progressText.textContent = 'Upload failed!';
+                uploadButton.disabled = false;
+            });
+            
+            // Send the form data
+            xhr.open('POST', form.action, true);
+            xhr.send(formData);
+            
+            // Prevent default form submission
+            e.preventDefault();
+        });
+    });
+</script>
+{% endblock %} 

@@ -1,0 +1,69 @@
+/* Custom styles for File Sharing System */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+/* File list styles */
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Log entry styles */
+.log-entry {
+    padding: 2px 0;
+    border-bottom: 1px solid #343a40;
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+/* Progress bar animation */
+@keyframes progress-bar-stripes {
+    from { background-position: 1rem 0; }
+    to { background-position: 0 0; }
+}
+
+/* Card shadow effect */
+.card.shadow {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    transition: box-shadow 0.3s ease;
+}
+
+.card.shadow:hover {
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Button hover effects */
+.btn {
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Custom scrollbar for logs */
+.logs-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.logs-container::-webkit-scrollbar-track {
+    background: #343a40;
+}
+
+.logs-container::-webkit-scrollbar-thumb {
+    background-color: #6c757d;
+    border-radius: 4px;
+}
+
+.logs-container::-webkit-scrollbar-thumb:hover {
+    background-color: #5a6268;
+} 

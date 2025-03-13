@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %}Users - File Sharing System{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-people me-2"></i>Users</h2>
+    <a href="{{ url_for('add_user') }}" class="btn btn-primary">
+        <i class="bi bi-person-plus me-2"></i>Add User
+    </a>
+</div>
+
+{% if users %}
+<div class="card shadow">
+    <div class="card-header bg-light">
+        <div class="row">
+            <div class="col-md-6">
+                <strong>Username</strong>
+            </div>
+            <div class="col-md-4 text-center">
+                <strong>Role</strong>
+            </div>
+            <div class="col-md-2 text-center">
+                <strong>Actions</strong>
+            </div>
+        </div>
+    </div>
+    <div class="list-group list-group-flush">
+        {% for user in users %}
+        <div class="list-group-item">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <i class="bi bi-person me-2"></i>{{ user.username }}
+                </div>
+                <div class="col-md-4 text-center">
+                    {% if user.role == 'admin' %}
+                    <span class="badge bg-danger">Admin</span>
+                    {% else %}
+                    <span class="badge bg-primary">User</span>
+                    {% endif %}
+                </div>
+                <div class="col-md-2 text-center">
+                    {% if user.username != current_user.username %}
+                    <button type="button" class="btn btn-sm btn-outline-danger" title="Delete" 
+                            data-bs-toggle="modal" data-bs-target="#deleteUserModal" 
+                            data-username="{{ user.username }}">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                    {% else %}
+                    <span class="badge bg-secondary">Current User</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<div class="alert alert-info">
+    <i class="bi bi-info-circle me-2"></i>No users found.
+</div>
+{% endif %}
+
+<!-- Delete User Modal -->
+<div class="modal fade" id="deleteUserModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete user <strong id="deleteUsername"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteUserForm" method="post" action="">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle delete user modal
+        const deleteUserModal = document.getElementById('deleteUserModal');
+        if (deleteUserModal) {
+            deleteUserModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const username = button.getAttribute('data-username');
+                
+                document.getElementById('deleteUsername').textContent = username;
+                document.getElementById('deleteUserForm').action = "{{ url_for('delete_user', username='') }}" + username;
+            });
+        }
+    });
+</script>
+{% endblock %} 

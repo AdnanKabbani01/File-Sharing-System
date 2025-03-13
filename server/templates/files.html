@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Files - File Sharing System{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-folder me-2"></i>Files</h2>
+    <a href="{{ url_for('upload') }}" class="btn btn-primary">
+        <i class="bi bi-upload me-2"></i>Upload File
+    </a>
+</div>
+
+{% if files %}
+<div class="card shadow">
+    <div class="card-header bg-light">
+        <div class="row">
+            <div class="col-md-6">
+                <strong>Filename</strong>
+            </div>
+            <div class="col-md-2 text-center">
+                <strong>Size</strong>
+            </div>
+            <div class="col-md-3 text-center">
+                <strong>Modified</strong>
+            </div>
+            <div class="col-md-1 text-center">
+                <strong>Actions</strong>
+            </div>
+        </div>
+    </div>
+    <div class="list-group list-group-flush">
+        {% for file in files %}
+        <div class="list-group-item">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <i class="bi bi-file-earmark me-2"></i>{{ file.name }}
+                </div>
+                <div class="col-md-2 text-center">
+                    {{ file.size_str }}
+                </div>
+                <div class="col-md-3 text-center">
+                    {{ file.modified_str }}
+                </div>
+                <div class="col-md-1 text-center">
+                    <div class="btn-group">
+                        <a href="{{ url_for('download', filename=file.name) }}" class="btn btn-sm btn-outline-primary" title="Download">
+                            <i class="bi bi-download"></i>
+                        </a>
+                        {% if current_user.role == 'admin' %}
+                        <button type="button" class="btn btn-sm btn-outline-danger" title="Delete" 
+                                data-bs-toggle="modal" data-bs-target="#deleteModal" 
+                                data-filename="{{ file.name }}">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% else %}
+<div class="alert alert-info">
+    <i class="bi bi-info-circle me-2"></i>No files available. Upload some files to get started.
+</div>
+{% endif %}
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <strong id="deleteFileName"></strong>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <form id="deleteForm" method="post" action="">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle delete modal
+        const deleteModal = document.getElementById('deleteModal');
+        if (deleteModal) {
+            deleteModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const filename = button.getAttribute('data-filename');
+                
+                document.getElementById('deleteFileName').textContent = filename;
+                document.getElementById('deleteForm').action = "{{ url_for('delete', filename='') }}" + filename;
+            });
+        }
+    });
+</script>
+{% endblock %} 

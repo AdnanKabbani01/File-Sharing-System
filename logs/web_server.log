@@ -1,0 +1,8 @@
+2025-03-13 15:04:53,285 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-03-13 15:05:14,803 - web_server - INFO - User admin logged in with role admin
+2025-03-13 15:05:22,887 - web_server - INFO - File uploaded: Web.zip by admin
+2025-03-13 15:05:44,368 - web_server - INFO - File downloaded: Web.zip by admin
+2025-03-13 15:09:22,294 - web_server - INFO - User adnan added with role user by admin
+2025-03-13 15:09:36,590 - web_server - INFO - User adnan logged in with role user
+2025-03-13 15:09:43,745 - web_server - INFO - File Web.zip already exists, renamed to Web_v2.zip
+2025-03-13 15:09:43,828 - web_server - INFO - File uploaded: Web_v2.zip by adnan
