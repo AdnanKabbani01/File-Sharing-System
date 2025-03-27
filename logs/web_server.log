@@ -12,3 +12,6 @@
 2025-03-26 14:40:26,817 - web_server - INFO - User adnan1 logged in with role user
 2025-03-26 14:40:35,948 - web_server - INFO - File uploaded: manifest.xml by adnan1
 2025-03-26 14:40:54,787 - web_server - INFO - User admin logged out
+2025-03-27 15:02:16,588 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-03-27 15:02:45,714 - web_server - WARNING - Failed login attempt for user admin
+2025-03-27 15:02:50,578 - web_server - INFO - User admin logged in with role admin

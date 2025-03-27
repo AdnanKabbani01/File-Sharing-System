@@ -11,3 +11,8 @@
 2025-03-26 14:40:21,207 - database - INFO - Database saved to users.json
 2025-03-26 14:40:21,208 - database - INFO - Added new user adnan1 with role user
 2025-03-26 14:40:26,816 - database - INFO - User adnan1 authenticated successfully
+2025-03-27 15:01:22,240 - database - INFO - Database loaded from users.json
+2025-03-27 15:02:00,280 - database - INFO - Database loaded from users.json
+2025-03-27 15:02:16,581 - database - INFO - Database loaded from users.json
+2025-03-27 15:02:45,714 - database - WARNING - Failed authentication attempt for user admin
+2025-03-27 15:02:50,578 - database - INFO - User admin authenticated successfully

@@ -53,9 +53,6 @@ class Database:
     def authenticate_user(self, username, password):
         """
         Verifies user credentials against stored values
-        
-        Returns:
-            tuple: (success, role) - success is a boolean, role is the user's role if successful
         """
         if username in self.users:
             stored_hash = self.users[username]["password_hash"]
