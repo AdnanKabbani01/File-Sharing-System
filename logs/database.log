@@ -5,3 +5,9 @@
 2025-03-13 15:09:22,293 - database - INFO - Database saved to users.json
 2025-03-13 15:09:22,293 - database - INFO - Added new user adnan with role user
 2025-03-13 15:09:36,589 - database - INFO - User adnan authenticated successfully
+2025-03-26 14:29:16,114 - database - INFO - Database loaded from users.json
+2025-03-26 14:29:23,140 - database - INFO - Database loaded from users.json
+2025-03-26 14:39:12,507 - database - INFO - User admin authenticated successfully
+2025-03-26 14:40:21,207 - database - INFO - Database saved to users.json
+2025-03-26 14:40:21,208 - database - INFO - Added new user adnan1 with role user
+2025-03-26 14:40:26,816 - database - INFO - User adnan1 authenticated successfully

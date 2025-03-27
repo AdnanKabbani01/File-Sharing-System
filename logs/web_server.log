@@ -6,3 +6,9 @@
 2025-03-13 15:09:36,590 - web_server - INFO - User adnan logged in with role user
 2025-03-13 15:09:43,745 - web_server - INFO - File Web.zip already exists, renamed to Web_v2.zip
 2025-03-13 15:09:43,828 - web_server - INFO - File uploaded: Web_v2.zip by adnan
+2025-03-26 14:29:23,148 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-03-26 14:39:12,508 - web_server - INFO - User admin logged in with role admin
+2025-03-26 14:40:21,208 - web_server - INFO - User adnan1 added with role user by admin
+2025-03-26 14:40:26,817 - web_server - INFO - User adnan1 logged in with role user
+2025-03-26 14:40:35,948 - web_server - INFO - File uploaded: manifest.xml by adnan1
+2025-03-26 14:40:54,787 - web_server - INFO - User admin logged out
