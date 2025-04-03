@@ -4,6 +4,7 @@ import threading
 import json
 import time
 import sys
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils import setup_logger, calculate_file_hash, handle_duplicate_filename, get_file_size
 from protocol import (
@@ -28,6 +29,7 @@ active_clients_lock = threading.Lock()
 incomplete_uploads = {}
 incomplete_uploads_lock = threading.Lock()
 class ClientHandler(threading.Thread):
+
     def __init__(self, client_socket, client_address):
         threading.Thread.__init__(self)
         self.client_socket = client_socket
@@ -38,6 +40,7 @@ class ClientHandler(threading.Thread):
         self.running = True
         with active_clients_lock:
             active_clients[client_address] = self
+
     def run(self):
         """Handles all communication with a connected client"""
         logger.info(f"New connection from {self.client_address}")
@@ -75,6 +78,7 @@ class ClientHandler(threading.Thread):
                 if self.client_address in active_clients:
                     del active_clients[self.client_address]
             logger.info(f"Connection closed with {self.client_address}")
+
     def handle_auth(self, data):
         """Verifies client credentials and establishes authenticated session"""
         username = data.get('username')
@@ -94,6 +98,7 @@ class ClientHandler(threading.Thread):
             response = create_response(STATUS_AUTH_FAILED)
             logger.warning(f"Failed authentication attempt from {self.client_address}")
         send_message(self.client_socket, 'RESPONSE', response)
+
     def handle_upload(self, data):
         """Processes incoming file uploads from clients"""
         filename = data.get('filename')
@@ -114,6 +119,7 @@ class ClientHandler(threading.Thread):
             'ready': True,
             'temp_id': filename  
         })
+
         send_message(self.client_socket, 'RESPONSE', response)
         try:
             with open(temp_path, 'wb') as f:
@@ -166,6 +172,7 @@ class ClientHandler(threading.Thread):
             logger.error(f"Error during upload from {self.client_address}: {str(e)}")
             response = create_response(STATUS_ERROR, {'message': str(e)})
             send_message(self.client_socket, 'RESPONSE', response)
+
     def handle_resume_upload(self, data):
         """Continues a previously interrupted file upload"""
         filename = data.get('filename')
@@ -184,6 +191,7 @@ class ClientHandler(threading.Thread):
             'bytes_received': upload_info['bytes_received'],
             'file_size': upload_info['file_size']
         })
+
         send_message(self.client_socket, 'RESPONSE', response)
         try:
             with open(upload_info['path'], 'ab') as f:
@@ -231,6 +239,7 @@ class ClientHandler(threading.Thread):
             logger.error(f"Error during resumed upload from {self.client_address}: {str(e)}")
             response = create_response(STATUS_ERROR, {'message': str(e)})
             send_message(self.client_socket, 'RESPONSE', response)
+
     def handle_download(self, data):
         """Sends requested files to clients"""
         filename = data.get('filename')
@@ -275,6 +284,7 @@ class ClientHandler(threading.Thread):
                 logger.info(f"Download complete for {self.client_address}: {filename} ({file_size} bytes, {transfer_rate:.2f} MB/s)")
         except Exception as e:
             logger.error(f"Error during download for {self.client_address}: {str(e)}")
+
     def handle_list(self):
         """Provides clients with a list of available files"""
         try:
@@ -294,6 +304,7 @@ class ClientHandler(threading.Thread):
             logger.error(f"Error listing files for {self.client_address}: {str(e)}")
             response = create_response(STATUS_ERROR, {'message': str(e)})
             send_message(self.client_socket, 'RESPONSE', response)
+
 def start_server():
     """Initializes and runs the file sharing server"""
     try:

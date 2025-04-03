@@ -20,3 +20,17 @@
 2025-04-03 14:25:14,780 - web_server - INFO - User admin logged in with role admin
 2025-04-03 14:26:03,740 - web_server - INFO - Web server starting on 0.0.0.0:5000
 2025-04-03 14:26:17,096 - web_server - INFO - User admin logged out
+2025-04-03 14:43:21,308 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-04-03 14:44:02,737 - web_server - INFO - User adnan logged in with role user
+2025-04-03 14:44:09,632 - web_server - INFO - User admin logged in with role admin
+2025-04-03 14:44:29,480 - web_server - INFO - User adnan1 added with role user by admin
+2025-04-03 14:44:36,533 - web_server - INFO - User adnan1 logged in with role user
+2025-04-03 14:45:06,637 - web_server - INFO - File uploaded: Jobs_Cleaned.xlsx by adnan1
+2025-04-03 14:45:21,916 - web_server - INFO - File manifest.xml already exists, renamed to manifest_v2.xml
+2025-04-03 14:45:21,918 - web_server - INFO - File uploaded: manifest_v2.xml by adnan
+2025-04-03 14:45:30,623 - web_server - INFO - File downloaded: Jobs_Cleaned.xlsx by admin
+2025-04-03 14:45:31,933 - web_server - INFO - File downloaded: manifest.xml by admin
+2025-04-03 14:45:41,644 - web_server - INFO - File uploaded: Jobs_Cleaned_1.xlsx by adnan
+2025-04-03 14:45:48,940 - web_server - INFO - File Jobs_Cleaned (1).xlsx already exists, renamed to Jobs_Cleaned_1_v2.xlsx
+2025-04-03 14:45:48,959 - web_server - INFO - File uploaded: Jobs_Cleaned_1_v2.xlsx by adnan
+2025-04-03 14:52:33,574 - web_server - INFO - File uploaded: manifest_1.xml by adnan

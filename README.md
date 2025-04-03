@@ -1,6 +1,6 @@
 # Advanced File Sharing System
 
-use cd server && python web_server.py to start the web server
+Use cd server && python web_server.py to start the web server
 
 A secure, multithreaded client-server file sharing system that allows users to upload, download, and list files in a distributed environment with advanced features like authentication, integrity verification, and resumable transfers.
 
@@ -19,8 +19,9 @@ A secure, multithreaded client-server file sharing system that allows users to u
 - [Reliability Features](#reliability-features)
 - [Project Structure](#project-structure)
 - [Configuration](#configuration)
-- [Troubleshooting](#troubleshooting)
-- [Future Enhancements](#future-enhancements)
+- [TBD for final submission](#tbd-for-final-submission)
+- [Default Credentials](#default-credentials)
+- [Resources and References](#resources-and-references)
 
 ## Features
 
@@ -297,30 +298,6 @@ CHUNK_SIZE = 8192
 ENCODING = 'utf-8'          
 ```
 
-## Troubleshooting
-
-### Common Issues
-
-1. **Connection Refused**:
-   - Ensure the server is running
-   - Check if the port is blocked by a firewall
-   - Verify the correct hostname/IP and port
-
-2. **Authentication Failed**:
-   - Verify username and password
-   - Check if authentication is enabled on the server
-   - Ensure the user database file is accessible
-
-3. **File Transfer Errors**:
-   - Check disk space on both client and server
-   - Verify file permissions
-   - Look for network interruptions in logs
-
-4. **Web Interface Issues**:
-   - Clear browser cache
-   - Check browser console for JavaScript errors
-   - Verify Flask dependencies are installed
-
 ### Logging
 
 Logs are stored in the `logs/` directory:
@@ -334,33 +311,25 @@ Enable debug logging by modifying the log level in `utils.py`:
 setup_logger('server', 'logs/server.log', level=logging.DEBUG)
 ```
 
-## Future Enhancements
+## TBD for final submission
 
-Potential improvements for future versions:
-
-1. **Security Enhancements**:
-   - TLS encryption for socket connections
-   - Two-factor authentication
-   - File encryption at rest
-
-2. **Performance Improvements**:
-   - Asynchronous I/O for better scalability
-   - Connection pooling
-   - Caching frequently accessed files
-
-3. **Feature Additions**:
-   - File sharing with access links
-   - Directory support and recursive transfers
-   - File synchronization capabilities
-   - Search functionality
-
-4. **UI Improvements**:
-   - Mobile-responsive design
-   - Drag-and-drop uploads
-   - Real-time notifications
-
+Resume Interrupted Downloads (Checkpointing)
+• If a download is interrupted due to network failure, allow resumption from the last
+received byte instead of restarting.
+• Implement file chunking where files are sent in parts instead of all at once.
+• Store metadata (file size, last received chunk) to track incomplete downloads
 
 ## Default Credentials
 
 - Username: `admin`
 - Password: `admin123`
+
+## Resources and References
+
+- [Flask Documentation](https://flask.palletsprojects.com/)
+- [Python Socket Programming](https://realpython.com/python-sockets/)
+- [SHA-256 Hashing](https://docs.python.org/3/library/hashlib.html)
+- [Multithreading in Python](https://realpython.com/intro-to-python-threading/)
+- [Web Interface Design](https://getbootstrap.com/)
+- [Progress Bar Implementation](https://github.com/tqdm/tqdm)
+- [documentation](Got some help from Meta LLama 3.3 in documenting and organizing the flow of this project)

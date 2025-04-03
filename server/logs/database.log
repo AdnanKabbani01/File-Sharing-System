@@ -25,3 +25,12 @@
 2025-04-03 14:26:03,725 - database - INFO - Using database file: C:\Users\Adnan1\Desktop\fss\secure\user_credentials.db
 2025-04-03 14:26:03,734 - database - INFO - Loaded existing encryption key from C:\Users\Adnan1\Desktop\fss\secure\encryption.key
 2025-04-03 14:26:03,735 - database - INFO - Database initialized at C:\Users\Adnan1\Desktop\fss\secure\user_credentials.db
+2025-04-03 14:43:21,302 - database - INFO - Using database file: C:\Users\Adnan1\Desktop\fss\secure\user_credentials.db
+2025-04-03 14:43:21,302 - database - INFO - Loaded existing encryption key from C:\Users\Adnan1\Desktop\fss\secure\encryption.key
+2025-04-03 14:43:21,303 - database - INFO - Database initialized at C:\Users\Adnan1\Desktop\fss\secure\user_credentials.db
+2025-04-03 14:44:02,736 - database - INFO - User adnan authenticated successfully
+2025-04-03 14:44:09,631 - database - INFO - User admin authenticated successfully
+2025-04-03 14:44:20,575 - database - INFO - Retrieved 2 users from database
+2025-04-03 14:44:29,479 - database - INFO - Added new user adnan1 with role user
+2025-04-03 14:44:29,488 - database - INFO - Retrieved 3 users from database
+2025-04-03 14:44:36,532 - database - INFO - User adnan1 authenticated successfully

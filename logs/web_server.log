@@ -15,3 +15,13 @@
 2025-03-27 15:02:16,588 - web_server - INFO - Web server starting on 0.0.0.0:5000
 2025-03-27 15:02:45,714 - web_server - WARNING - Failed login attempt for user admin
 2025-03-27 15:02:50,578 - web_server - INFO - User admin logged in with role admin
+2025-04-03 14:52:53,934 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-04-03 14:53:05,035 - web_server - INFO - User adnan logged in with role user
+2025-04-03 14:53:18,160 - web_server - INFO - File uploaded: Lecture_16-update_-_FDL.pptx by adnan
+2025-04-03 14:53:46,865 - web_server - INFO - Streaming download started: Lecture_16-update_-_FDL.pptx by adnan from byte 0
+2025-04-03 14:54:43,264 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-04-03 14:54:54,864 - web_server - INFO - User admin logged in with role admin
+2025-04-03 14:55:07,444 - web_server - INFO - File downloaded: Lecture_16-update_-_FDL.pptx by admin
+2025-04-03 14:58:35,676 - web_server - INFO - File uploaded: Lecture_16-update_-_FDL_1.pptx by admin
+2025-04-03 15:03:04,773 - web_server - INFO - File Lecture_16-update_-_FDL (1).pptx already exists, renamed to Lecture_16-update_-_FDL_1_v2.pptx
+2025-04-03 15:03:04,843 - web_server - INFO - File uploaded: Lecture_16-update_-_FDL_1_v2.pptx by admin
