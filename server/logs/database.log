@@ -1,0 +1,27 @@
+2025-04-03 14:14:12,021 - database - INFO - Created new database with default admin user
+2025-04-03 14:14:12,026 - database - INFO - Database initialized at user_credentials.db
+2025-04-03 14:14:48,654 - database - INFO - User admin authenticated successfully
+2025-04-03 14:15:01,972 - database - INFO - Added new user adnan with role user
+2025-04-03 14:15:11,056 - database - INFO - User adnan authenticated successfully
+2025-04-03 14:18:13,330 - database - INFO - Created new encryption key at C:\Users\Adnan1\Desktop\fss\encryption.key
+2025-04-03 14:18:13,345 - database - INFO - Created new database with default admin user
+2025-04-03 14:18:13,349 - database - INFO - Database initialized at C:\Users\Adnan1\Desktop\fss\user_credentials.db
+2025-04-03 14:18:23,195 - database - WARNING - Authentication attempt for non-existent user adnan
+2025-04-03 14:18:31,680 - database - INFO - User admin authenticated successfully
+2025-04-03 14:18:41,014 - database - INFO - Added new user adnan with role user
+2025-04-03 14:18:50,855 - database - INFO - User adnan authenticated successfully
+2025-04-03 14:19:37,095 - database - INFO - Created new encryption key at C:\Users\Adnan1\Desktop\fss\secure\encryption.key
+2025-04-03 14:19:37,104 - database - INFO - Created new database with default admin user
+2025-04-03 14:19:37,108 - database - INFO - Database initialized at C:\Users\Adnan1\Desktop\fss\secure\user_credentials.db
+2025-04-03 14:19:44,786 - database - WARNING - Authentication attempt for non-existent user adnan
+2025-04-03 14:19:55,194 - database - INFO - User admin authenticated successfully
+2025-04-03 14:24:36,322 - database - INFO - Using database file: C:\Users\Adnan1\Desktop\fss\secure\user_credentials.db
+2025-04-03 14:24:36,434 - database - INFO - Created new encryption key at C:\Users\Adnan1\Desktop\fss\secure\encryption.key
+2025-04-03 14:24:36,443 - database - INFO - Created new database with default admin user
+2025-04-03 14:24:36,447 - database - INFO - Database initialized at C:\Users\Adnan1\Desktop\fss\secure\user_credentials.db
+2025-04-03 14:24:55,309 - database - INFO - Added new user adnan with role user
+2025-04-03 14:25:02,554 - database - INFO - User adnan authenticated successfully
+2025-04-03 14:25:14,779 - database - INFO - User admin authenticated successfully
+2025-04-03 14:26:03,725 - database - INFO - Using database file: C:\Users\Adnan1\Desktop\fss\secure\user_credentials.db
+2025-04-03 14:26:03,734 - database - INFO - Loaded existing encryption key from C:\Users\Adnan1\Desktop\fss\secure\encryption.key
+2025-04-03 14:26:03,735 - database - INFO - Database initialized at C:\Users\Adnan1\Desktop\fss\secure\user_credentials.db

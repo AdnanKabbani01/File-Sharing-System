@@ -1,0 +1,22 @@
+2025-04-03 14:14:12,033 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-04-03 14:14:48,656 - web_server - INFO - User admin logged in with role admin
+2025-04-03 14:15:01,973 - web_server - INFO - User adnan added with role user by admin
+2025-04-03 14:15:06,005 - web_server - INFO - User admin logged out
+2025-04-03 14:15:11,057 - web_server - INFO - User adnan logged in with role user
+2025-04-03 14:18:13,356 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-04-03 14:18:23,196 - web_server - WARNING - Failed login attempt for user adnan
+2025-04-03 14:18:31,680 - web_server - INFO - User admin logged in with role admin
+2025-04-03 14:18:41,015 - web_server - INFO - User adnan added with role user by admin
+2025-04-03 14:18:43,653 - web_server - INFO - User admin logged out
+2025-04-03 14:18:50,856 - web_server - INFO - User adnan logged in with role user
+2025-04-03 14:19:37,114 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-04-03 14:19:44,786 - web_server - WARNING - Failed login attempt for user adnan
+2025-04-03 14:19:55,194 - web_server - INFO - User admin logged in with role admin
+2025-04-03 14:24:36,453 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-04-03 14:24:55,310 - web_server - INFO - User adnan added with role user by admin
+2025-04-03 14:24:57,347 - web_server - INFO - User admin logged out
+2025-04-03 14:25:02,555 - web_server - INFO - User adnan logged in with role user
+2025-04-03 14:25:09,916 - web_server - INFO - User adnan logged out
+2025-04-03 14:25:14,780 - web_server - INFO - User admin logged in with role admin
+2025-04-03 14:26:03,740 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-04-03 14:26:17,096 - web_server - INFO - User admin logged out

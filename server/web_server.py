@@ -11,6 +11,7 @@ from werkzeug.utils import secure_filename
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils import setup_logger, calculate_file_hash, handle_duplicate_filename, get_file_size
 from database import Database, ROLE_ADMIN, ROLE_USER
+
 HOST = '0.0.0.0'
 PORT = 5000
 SHARED_FILES_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared_files')
@@ -30,25 +31,31 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 upload_progress = {}
 upload_progress_lock = threading.Lock()
+
 class User(UserMixin):
     def __init__(self, username, role):
         self.id = username
         self.username = username
         self.role = role
+
 @login_manager.user_loader
 def load_user(user_id):
     role = db.get_user_role(user_id)
     if role:
         return User(user_id, role)
     return None
+
 @app.context_processor
 def inject_now():
     return {'now': datetime.now()}
+
 @app.route('/')
 def index():
     """Home page"""
     return redirect(url_for('files'))
+
 @app.route('/login', methods=['GET', 'POST'])
+
 def login():
     """Login page"""
     if request.method == 'POST':
@@ -68,6 +75,7 @@ def login():
             flash('Invalid username or password', 'danger')
             logger.warning(f"Failed login attempt for user {username}")
     return render_template('login.html')
+
 @app.route('/logout')
 @login_required
 def logout():
@@ -76,6 +84,7 @@ def logout():
     logout_user()
     flash('You have been logged out', 'info')
     return redirect(url_for('login'))
+
 @app.route('/files')
 @login_required
 def files():
@@ -102,6 +111,7 @@ def files():
             })
     files.sort(key=lambda x: x['modified'], reverse=True)
     return render_template('files.html', files=files)
+
 @app.route('/upload', methods=['GET', 'POST'])
 @login_required
 def upload():
@@ -150,6 +160,7 @@ def upload():
                     upload_progress[upload_id]['status'] = 'error'
             return redirect(url_for('upload'))
     return render_template('upload.html')
+
 @app.route('/download/<filename>')
 @login_required
 def download(filename):
@@ -160,6 +171,7 @@ def download(filename):
         return redirect(url_for('files'))
     logger.info(f"File downloaded: {filename} by {current_user.username}")
     return send_file(file_path, as_attachment=True)
+
 @app.route('/delete/<filename>', methods=['POST'])
 @login_required
 def delete(filename):
@@ -179,6 +191,7 @@ def delete(filename):
         logger.error(f"Error deleting file: {str(e)}")
         flash(f'Error deleting file: {str(e)}', 'danger')
     return redirect(url_for('files'))
+
 @app.route('/users')
 @login_required
 def users():
@@ -186,13 +199,16 @@ def users():
     if current_user.role != ROLE_ADMIN:
         flash('You do not have permission to view users', 'danger')
         return redirect(url_for('files'))
+    
+    users_dict = db.list_users()
     users_list = []
-    for username, user_data in db.users.items():
+    for username, user_data in users_dict.items():
         users_list.append({
             'username': username,
             'role': user_data['role']
         })
     return render_template('users.html', users=users_list)
+
 @app.route('/add_user', methods=['GET', 'POST'])
 @login_required
 def add_user():
@@ -217,6 +233,7 @@ def add_user():
         else:
             flash(f'Error adding user {username}', 'danger')
     return render_template('add_user.html')
+
 @app.route('/delete_user/<username>', methods=['POST'])
 @login_required
 def delete_user(username):
@@ -234,6 +251,7 @@ def delete_user(username):
     else:
         flash(f'Error deleting user {username}', 'danger')
     return redirect(url_for('users'))
+
 @app.route('/logs')
 @login_required
 def logs():
@@ -257,6 +275,7 @@ def logs():
             for line in reversed(lines[-100:]):
                 log_content.append(line.strip())
     return render_template('logs.html', log_content=log_content, log_type=log_type)
+
 @app.route('/upload_progress/<upload_id>')
 @login_required
 def get_upload_progress(upload_id):
@@ -276,6 +295,7 @@ def get_upload_progress(upload_id):
                 'status': progress['status']
             })
     return jsonify({'status': 'not_found'})
+
 def start_web_server():
     """Start the web server"""
     templates_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')

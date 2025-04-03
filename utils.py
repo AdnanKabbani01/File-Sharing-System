@@ -2,6 +2,7 @@ import hashlib
 import logging
 import os
 from datetime import datetime
+
 def setup_logger(name, log_file, level=logging.INFO):
     """Sets up a logger that writes to both a file and the console"""
     logger = logging.getLogger(name)
@@ -17,6 +18,7 @@ def setup_logger(name, log_file, level=logging.INFO):
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
     return logger
+
 def calculate_file_hash(file_path):
     """Calculates the SHA-256 hash of a file for integrity verification"""
     sha256_hash = hashlib.sha256()
@@ -27,6 +29,7 @@ def calculate_file_hash(file_path):
 def get_file_size(file_path):
     """Returns the size of a file in bytes"""
     return os.path.getsize(file_path)
+
 def handle_duplicate_filename(directory, filename):
     """
     Handles duplicate filenames by adding version numbers (e.g., file_v2.txt)
@@ -42,6 +45,7 @@ def handle_duplicate_filename(directory, filename):
 def create_timestamp():
     """Creates a human-readable timestamp for logging purposes"""
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 def chunk_file(file_path, chunk_size=8192):
     """Reads a file in chunks to efficiently handle large files"""
     with open(file_path, 'rb') as f:

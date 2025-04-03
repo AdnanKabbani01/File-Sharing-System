@@ -1,4 +1,3 @@
-# File Sharing System Dependencies
 socket
 threading
 hashlib
@@ -6,4 +5,6 @@ logging
 tqdm==4.66.1  # For progress bars in CLI
 flask==2.3.3  # For web interface (bonus)
 werkzeug==2.3.7  # For secure file handling with Flask
-flask-login==0.6.2  # For user authentication (bonus) 
+flask-login==0.6.2  # For user authentication (bonus)
+# SQLite is included in Python standard library
+cryptography==41.0.3  # For additional encryption of sensitive data 

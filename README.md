@@ -1,6 +1,9 @@
 # Advanced File Sharing System
 
+use cd server && python web_server.py to start the web server
+
 A secure, multithreaded client-server file sharing system that allows users to upload, download, and list files in a distributed environment with advanced features like authentication, integrity verification, and resumable transfers.
+
 
 ## Table of Contents
 
@@ -61,21 +64,14 @@ The system consists of three main components:
 
 ### Prerequisites
 - Python 3.7 or higher
-- pip (Python package manager)
+- pip
 
 ### Setup
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/file-sharing-system.git
-   cd file-sharing-system
-   ```
-
-2. Install dependencies:
+1. Install dependencies:
    ```
    pip install -r requirements.txt
    ```
-
    Key dependencies:
    - socket (built-in)
    - threading (built-in)
@@ -85,11 +81,6 @@ The system consists of three main components:
    - flask==2.3.3 (for web interface)
    - werkzeug==2.3.7 (for secure file handling)
    - flask-login==0.6.2 (for user authentication)
-
-3. Create required directories (if not using the provided setup):
-   ```
-   mkdir -p server client logs shared_files
-   ```
 
 ## Usage
 
