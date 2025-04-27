@@ -25,3 +25,9 @@
 2025-04-03 14:58:35,676 - web_server - INFO - File uploaded: Lecture_16-update_-_FDL_1.pptx by admin
 2025-04-03 15:03:04,773 - web_server - INFO - File Lecture_16-update_-_FDL (1).pptx already exists, renamed to Lecture_16-update_-_FDL_1_v2.pptx
 2025-04-03 15:03:04,843 - web_server - INFO - File uploaded: Lecture_16-update_-_FDL_1_v2.pptx by admin
+2025-04-03 15:04:20,065 - web_server - INFO - File Lecture_16-update_-_FDL (1).pptx already exists, renamed to Lecture_16-update_-_FDL_1_v3.pptx
+2025-04-03 15:04:20,144 - web_server - INFO - File uploaded: Lecture_16-update_-_FDL_1_v3.pptx by admin
+2025-04-03 15:04:22,482 - web_server - INFO - File downloaded: Lecture_16-update_-_FDL_1_v3.pptx by admin
+2025-04-27 12:03:05,415 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-04-27 12:03:18,842 - web_server - INFO - User admin logged in with role admin
+2025-04-27 12:03:34,295 - web_server - INFO - User adnan1 deleted by admin

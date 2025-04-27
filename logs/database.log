@@ -24,3 +24,14 @@
 2025-04-03 14:54:43,258 - database - INFO - Loaded existing encryption key from C:\Users\Adnan1\Desktop\fss\secure\encryption.key
 2025-04-03 14:54:43,259 - database - INFO - Database initialized at C:\Users\Adnan1\Desktop\fss\secure\user_credentials.db
 2025-04-03 14:54:54,863 - database - INFO - User admin authenticated successfully
+2025-04-27 12:02:20,771 - database - INFO - Using database file: c:\Users\user\Downloads\Compressed\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-27 12:02:20,771 - database - INFO - Loaded existing encryption key from c:\Users\user\Downloads\Compressed\Adnan_Kabbani\Adnan_Kabbani\secure\encryption.key
+2025-04-27 12:02:20,789 - database - INFO - Database initialized at c:\Users\user\Downloads\Compressed\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-27 12:03:05,411 - database - INFO - Using database file: C:\Users\user\Downloads\Compressed\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-27 12:03:05,411 - database - INFO - Loaded existing encryption key from C:\Users\user\Downloads\Compressed\Adnan_Kabbani\Adnan_Kabbani\secure\encryption.key
+2025-04-27 12:03:05,412 - database - INFO - Database initialized at C:\Users\user\Downloads\Compressed\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-27 12:03:18,842 - database - INFO - User admin authenticated successfully
+2025-04-27 12:03:24,213 - database - INFO - Retrieved 3 users from database
+2025-04-27 12:03:30,488 - database - INFO - Retrieved 3 users from database
+2025-04-27 12:03:34,295 - database - INFO - Deleted user adnan1
+2025-04-27 12:03:34,304 - database - INFO - Retrieved 2 users from database
