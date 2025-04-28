@@ -69,14 +69,24 @@ class FileClient:
             logger.error("No response from server during authentication")
             return False
         
-        status = response.get('status')
-        if status == STATUS_AUTH_SUCCESS:
-            self.authenticated = True
-            self.role = response.get('data', {}).get('role')
-            logger.info(f"Authentication successful. Role: {self.role}")
-            return True
+        # Log the full response to debug
+        logger.info(f"Received authentication response: {response}")
+        
+        # Fix: Get status from the correct location in the response
+        if response.get('command') == 'RESPONSE':
+            response_data = response.get('data', {})
+            status = response_data.get('status')
+            
+            if status == STATUS_AUTH_SUCCESS:
+                self.authenticated = True
+                self.role = response_data.get('data', {}).get('role')
+                logger.info(f"Authentication successful. Role: {self.role}")
+                return True
+            else:
+                logger.warning(f"Authentication failed with status: {status}")
+                return False
         else:
-            logger.warning("Authentication failed")
+            logger.warning(f"Unexpected response format: {response}")
             return False
     
     def list_files(self):
@@ -92,19 +102,25 @@ class FileClient:
             logger.error("No response from server during list files")
             return None
         
-        status = response.get('status')
-        if status == STATUS_OK:
-            files = response.get('data', {}).get('files', [])
-            logger.info(f"Received file list from server ({len(files)} files)")
-            return files
-        elif status == STATUS_AUTH_REQUIRED:
-            logger.warning("Authentication required")
-            print("Authentication required. Please login first.")
-            return None
+        if response.get('command') == 'RESPONSE':
+            response_data = response.get('data', {})
+            status = response_data.get('status')
+            
+            if status == STATUS_OK:
+                files = response_data.get('data', {}).get('files', [])
+                logger.info(f"Received file list from server ({len(files)} files)")
+                return files
+            elif status == STATUS_AUTH_REQUIRED:
+                logger.warning("Authentication required")
+                print("Authentication required. Please login first.")
+                return None
+            else:
+                error_msg = response_data.get('data', {}).get('message', 'Unknown error')
+                logger.error(f"Error listing files: {error_msg}")
+                print(f"Error: {error_msg}")
+                return None
         else:
-            error_msg = response.get('data', {}).get('message', 'Unknown error')
-            logger.error(f"Error listing files: {error_msg}")
-            print(f"Error: {error_msg}")
+            logger.error(f"Unexpected response format: {response}")
             return None
     
     def upload_file(self, file_path, overwrite=False):
@@ -135,64 +151,77 @@ class FileClient:
             logger.error("No response from server during upload")
             return False
         
-        status = response.get('status')
-        if status == STATUS_AUTH_REQUIRED:
-            logger.warning("Authentication required")
-            print("Authentication required. Please login first.")
-            return False
-        elif status != STATUS_OK:
-            error_msg = response.get('data', {}).get('message', 'Unknown error')
-            logger.error(f"Error uploading file: {error_msg}")
-            print(f"Error: {error_msg}")
-            return False
-        try:
-            with open(file_path, 'rb') as f:
-                bytes_sent = 0
-                start_time = time.time()
-                
-                with tqdm(total=file_size, unit='B', unit_scale=True, desc=f"Uploading {filename}") as pbar:
-                    while bytes_sent < file_size:
-                        chunk = f.read(CHUNK_SIZE)
-                        if not chunk:
-                            break
-
-                        self.socket.sendall(chunk)
-                        bytes_sent += len(chunk)
-                        pbar.update(len(chunk))
+        if response.get('command') == 'RESPONSE':
+            response_data = response.get('data', {})
+            status = response_data.get('status')
             
-            response = receive_message(self.socket)
-            if not response:
-                logger.error("No response from server after upload")
+            if status == STATUS_AUTH_REQUIRED:
+                logger.warning("Authentication required")
+                print("Authentication required. Please login first.")
                 return False
-            
-            status = response.get('status')
-            if status == STATUS_OK:
-                elapsed_time = time.time() - start_time
-                transfer_rate = file_size / (1024 * 1024 * elapsed_time) if elapsed_time > 0 else 0
-                
-                logger.info(f"Upload successful: {filename} ({file_size} bytes, {transfer_rate:.2f} MB/s)")
-                print(f"Upload successful: {filename}")
-                print(f"Size: {file_size} bytes")
-                print(f"Transfer rate: {transfer_rate:.2f} MB/s")
-                return True
-            elif status == STATUS_CHECKSUM_FAILED:
-                logger.error(f"Upload failed: Checksum verification failed for {filename}")
-                print(f"Error: Checksum verification failed for {filename}")
-                return False
-            else:
-                error_msg = response.get('data', {}).get('message', 'Unknown error')
-                logger.error(f"Upload failed: {error_msg}")
+            elif status != STATUS_OK:
+                error_msg = response_data.get('data', {}).get('message', 'Unknown error')
+                logger.error(f"Error uploading file: {error_msg}")
                 print(f"Error: {error_msg}")
-                
-                if response.get('data', {}).get('resumable'):
-                    bytes_received = response.get('data', {}).get('bytes_received', 0)
-                    print(f"Upload is resumable. {bytes_received}/{file_size} bytes transferred.")
-                
                 return False
-        
-        except Exception as e:
-            logger.error(f"Error during file upload: {str(e)}")
-            print(f"Error during file upload: {str(e)}")
+            
+            try:
+                with open(file_path, 'rb') as f:
+                    bytes_sent = 0
+                    start_time = time.time()
+                    
+                    with tqdm(total=file_size, unit='B', unit_scale=True, desc=f"Uploading {filename}") as pbar:
+                        while bytes_sent < file_size:
+                            chunk = f.read(CHUNK_SIZE)
+                            if not chunk:
+                                break
+
+                            self.socket.sendall(chunk)
+                            bytes_sent += len(chunk)
+                            pbar.update(len(chunk))
+                
+                response = receive_message(self.socket)
+                if not response:
+                    logger.error("No response from server after upload")
+                    return False
+                
+                if response.get('command') == 'RESPONSE':
+                    response_data = response.get('data', {})
+                    status = response_data.get('status')
+                    
+                    if status == STATUS_OK:
+                        elapsed_time = time.time() - start_time
+                        transfer_rate = file_size / (1024 * 1024 * elapsed_time) if elapsed_time > 0 else 0
+                        
+                        logger.info(f"Upload successful: {filename} ({file_size} bytes, {transfer_rate:.2f} MB/s)")
+                        print(f"Upload successful: {filename}")
+                        print(f"Size: {file_size} bytes")
+                        print(f"Transfer rate: {transfer_rate:.2f} MB/s")
+                        return True
+                    elif status == STATUS_CHECKSUM_FAILED:
+                        logger.error(f"Upload failed: Checksum verification failed for {filename}")
+                        print(f"Error: Checksum verification failed for {filename}")
+                        return False
+                    else:
+                        error_msg = response_data.get('data', {}).get('message', 'Unknown error')
+                        logger.error(f"Upload failed: {error_msg}")
+                        print(f"Error: {error_msg}")
+                        
+                        if response_data.get('data', {}).get('resumable'):
+                            bytes_received = response_data.get('data', {}).get('bytes_received', 0)
+                            print(f"Upload is resumable. {bytes_received}/{file_size} bytes transferred.")
+                        
+                        return False
+                else:
+                    logger.error(f"Unexpected response format: {response}")
+                    return False
+            
+            except Exception as e:
+                logger.error(f"Error during file upload: {str(e)}")
+                print(f"Error during file upload: {str(e)}")
+                return False
+        else:
+            logger.error(f"Unexpected response format: {response}")
             return False
     
     def resume_upload(self, file_path):
@@ -220,63 +249,75 @@ class FileClient:
             logger.error("No response from server during resume upload")
             return False
         
-        status = response.get('status')
-        if status == STATUS_AUTH_REQUIRED:
-            logger.warning("Authentication required")
-            print("Authentication required. Please login first.")
-            return False
-        elif status != STATUS_OK:
-            error_msg = response.get('data', {}).get('message', 'Unknown error')
-            logger.error(f"Error resuming upload: {error_msg}")
-            print(f"Error: {error_msg}")
-            return False
-        
-        bytes_received = response.get('data', {}).get('bytes_received', 0)
-        try:
-            with open(file_path, 'rb') as f:
-                # Seek to the position where we left off
-                f.seek(bytes_received)
-                
-                bytes_sent = bytes_received
-                start_time = time.time()
-                with tqdm(total=file_size, initial=bytes_received, unit='B', unit_scale=True, desc=f"Resuming upload of {filename}") as pbar:
-                    while bytes_sent < file_size:
-                        chunk = f.read(CHUNK_SIZE)
-                        if not chunk:
-                            break
-
-                        self.socket.sendall(chunk)
-                        bytes_sent += len(chunk)
-                        pbar.update(len(chunk))
-
-            response = receive_message(self.socket)
-            if not response:
-                logger.error("No response from server after resumed upload")
-                return False
+        if response.get('command') == 'RESPONSE':
+            response_data = response.get('data', {})
+            status = response_data.get('status')
             
-            status = response.get('status')
-            if status == STATUS_OK:
-                elapsed_time = time.time() - start_time
-                transfer_rate = (file_size - bytes_received) / (1024 * 1024 * elapsed_time) if elapsed_time > 0 else 0
-                
-                logger.info(f"Resumed upload successful: {filename} ({file_size} bytes, {transfer_rate:.2f} MB/s)")
-                print(f"Resumed upload successful: {filename}")
-                print(f"Size: {file_size} bytes")
-                print(f"Transfer rate: {transfer_rate:.2f} MB/s")
-                return True
-            elif status == STATUS_CHECKSUM_FAILED:
-                logger.error(f"Resumed upload failed: Checksum verification failed for {filename}")
-                print(f"Error: Checksum verification failed for {filename}")
+            if status == STATUS_AUTH_REQUIRED:
+                logger.warning("Authentication required")
+                print("Authentication required. Please login first.")
                 return False
-            else:
-                error_msg = response.get('data', {}).get('message', 'Unknown error')
-                logger.error(f"Resumed upload failed: {error_msg}")
+            elif status != STATUS_OK:
+                error_msg = response_data.get('data', {}).get('message', 'Unknown error')
+                logger.error(f"Error resuming upload: {error_msg}")
                 print(f"Error: {error_msg}")
                 return False
-        
-        except Exception as e:
-            logger.error(f"Error during resumed file upload: {str(e)}")
-            print(f"Error during resumed file upload: {str(e)}")
+            
+            bytes_received = response_data.get('data', {}).get('bytes_received', 0)
+            try:
+                with open(file_path, 'rb') as f:
+                    # Seek to the position where we left off
+                    f.seek(bytes_received)
+                    
+                    bytes_sent = bytes_received
+                    start_time = time.time()
+                    with tqdm(total=file_size, initial=bytes_received, unit='B', unit_scale=True, desc=f"Resuming upload of {filename}") as pbar:
+                        while bytes_sent < file_size:
+                            chunk = f.read(CHUNK_SIZE)
+                            if not chunk:
+                                break
+
+                            self.socket.sendall(chunk)
+                            bytes_sent += len(chunk)
+                            pbar.update(len(chunk))
+
+                response = receive_message(self.socket)
+                if not response:
+                    logger.error("No response from server after resumed upload")
+                    return False
+                
+                if response.get('command') == 'RESPONSE':
+                    response_data = response.get('data', {})
+                    status = response_data.get('status')
+                    
+                    if status == STATUS_OK:
+                        elapsed_time = time.time() - start_time
+                        transfer_rate = (file_size - bytes_received) / (1024 * 1024 * elapsed_time) if elapsed_time > 0 else 0
+                        
+                        logger.info(f"Resumed upload successful: {filename} ({file_size} bytes, {transfer_rate:.2f} MB/s)")
+                        print(f"Resumed upload successful: {filename}")
+                        print(f"Size: {file_size} bytes")
+                        print(f"Transfer rate: {transfer_rate:.2f} MB/s")
+                        return True
+                    elif status == STATUS_CHECKSUM_FAILED:
+                        logger.error(f"Resumed upload failed: Checksum verification failed for {filename}")
+                        print(f"Error: Checksum verification failed for {filename}")
+                        return False
+                    else:
+                        error_msg = response_data.get('data', {}).get('message', 'Unknown error')
+                        logger.error(f"Resumed upload failed: {error_msg}")
+                        print(f"Error: {error_msg}")
+                        return False
+                else:
+                    logger.error(f"Unexpected response format: {response}")
+                    return False
+            
+            except Exception as e:
+                logger.error(f"Error during resumed file upload: {str(e)}")
+                print(f"Error during resumed file upload: {str(e)}")
+                return False
+        else:
+            logger.error(f"Unexpected response format: {response}")
             return False
     
     def download_file(self, filename, resume=False):
@@ -304,71 +345,77 @@ class FileClient:
             logger.error("No response from server during download")
             return False
         
-        status = response.get('status')
-        if status == STATUS_AUTH_REQUIRED:
-            logger.warning("Authentication required")
-            print("Authentication required. Please login first.")
-            return False
-        elif status == STATUS_FILE_NOT_FOUND:
-            logger.error(f"File not found on server: {filename}")
-            print(f"Error: File not found on server: {filename}")
-            return False
-        elif status != STATUS_OK:
-            error_msg = response.get('data', {}).get('message', 'Unknown error')
-            logger.error(f"Error downloading file: {error_msg}")
-            print(f"Error: {error_msg}")
-            return False
-
-        file_size = response.get('data', {}).get('file_size')
-        file_hash = response.get('data', {}).get('file_hash')
-        
-        if file_size is None:
-            logger.error("Missing file size in server response")
-            print("Error: Missing file size in server response")
-            return False
-
-        send_message(self.socket, 'DOWNLOAD_CONFIRM')
-
-        try:
-            mode = 'ab' if resume and start_byte > 0 else 'wb'
-            with open(incomplete_path, mode) as f:
-                bytes_received = start_byte
-                start_time = time.time()
-
-                with tqdm(total=file_size, initial=start_byte, unit='B', unit_scale=True, desc=f"Downloading {filename}") as pbar:
-                    while bytes_received < file_size:
-                        chunk = self.socket.recv(min(CHUNK_SIZE, file_size - bytes_received))
-                        if not chunk:
-                            break
-                        
-                        f.write(chunk)
-                        bytes_received += len(chunk)
-                        pbar.update(len(chunk))
-
-            if bytes_received < file_size:
-                logger.warning(f"Incomplete download: {filename} ({bytes_received}/{file_size} bytes)")
-                print(f"Download incomplete. Received {bytes_received}/{file_size} bytes.")
-                print(f"You can resume the download later with: --resume {filename}")
-                return False
-            calculated_hash = calculate_file_hash(incomplete_path)
-            if file_hash and calculated_hash != file_hash:
-                logger.error(f"Checksum verification failed for {filename}")
-                print(f"Error: Checksum verification failed for {filename}")
-                return False
-            os.rename(incomplete_path, target_path)
-            elapsed_time = time.time() - start_time
-            transfer_rate = (file_size - start_byte) / (1024 * 1024 * elapsed_time) if elapsed_time > 0 else 0
+        if response.get('command') == 'RESPONSE':
+            response_data = response.get('data', {})
+            status = response_data.get('status')
             
-            logger.info(f"Download successful: {filename} ({file_size} bytes, {transfer_rate:.2f} MB/s)")
-            print(f"Download successful: {filename}")
-            print(f"Saved to: {target_path}")
-            print(f"Size: {file_size} bytes")
-            print(f"Transfer rate: {transfer_rate:.2f} MB/s")
-            return True
-        
-        except Exception as e:
-            logger.error(f"Error during file download: {str(e)}")
-            print(f"Error during file download: {str(e)}")
+            if status == STATUS_AUTH_REQUIRED:
+                logger.warning("Authentication required")
+                print("Authentication required. Please login first.")
+                return False
+            elif status == STATUS_FILE_NOT_FOUND:
+                logger.error(f"File not found on server: {filename}")
+                print(f"Error: File not found on server: {filename}")
+                return False
+            elif status != STATUS_OK:
+                error_msg = response_data.get('data', {}).get('message', 'Unknown error')
+                logger.error(f"Error downloading file: {error_msg}")
+                print(f"Error: {error_msg}")
+                return False
+
+            file_size = response_data.get('data', {}).get('file_size')
+            file_hash = response_data.get('data', {}).get('file_hash')
+            
+            if file_size is None:
+                logger.error("Missing file size in server response")
+                print("Error: Missing file size in server response")
+                return False
+
+            send_message(self.socket, 'DOWNLOAD_CONFIRM')
+
+            try:
+                mode = 'ab' if resume and start_byte > 0 else 'wb'
+                with open(incomplete_path, mode) as f:
+                    bytes_received = start_byte
+                    start_time = time.time()
+
+                    with tqdm(total=file_size, initial=start_byte, unit='B', unit_scale=True, desc=f"Downloading {filename}") as pbar:
+                        while bytes_received < file_size:
+                            chunk = self.socket.recv(min(CHUNK_SIZE, file_size - bytes_received))
+                            if not chunk:
+                                break
+                            
+                            f.write(chunk)
+                            bytes_received += len(chunk)
+                            pbar.update(len(chunk))
+
+                if bytes_received < file_size:
+                    logger.warning(f"Incomplete download: {filename} ({bytes_received}/{file_size} bytes)")
+                    print(f"Download incomplete. Received {bytes_received}/{file_size} bytes.")
+                    print(f"You can resume the download later with: --resume {filename}")
+                    return False
+                calculated_hash = calculate_file_hash(incomplete_path)
+                if file_hash and calculated_hash != file_hash:
+                    logger.error(f"Checksum verification failed for {filename}")
+                    print(f"Error: Checksum verification failed for {filename}")
+                    return False
+                os.rename(incomplete_path, target_path)
+                elapsed_time = time.time() - start_time
+                transfer_rate = (file_size - start_byte) / (1024 * 1024 * elapsed_time) if elapsed_time > 0 else 0
+                
+                logger.info(f"Download successful: {filename} ({file_size} bytes, {transfer_rate:.2f} MB/s)")
+                print(f"Download successful: {filename}")
+                print(f"Saved to: {target_path}")
+                print(f"Size: {file_size} bytes")
+                print(f"Transfer rate: {transfer_rate:.2f} MB/s")
+                return True
+            
+            except Exception as e:
+                logger.error(f"Error during file download: {str(e)}")
+                print(f"Error during file download: {str(e)}")
+                return False
+        else:
+            logger.error(f"Unexpected response format: {response}")
             return False
 
 def print_file_list(files):

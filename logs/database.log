@@ -35,3 +35,39 @@
 2025-04-27 12:03:30,488 - database - INFO - Retrieved 3 users from database
 2025-04-27 12:03:34,295 - database - INFO - Deleted user adnan1
 2025-04-27 12:03:34,304 - database - INFO - Retrieved 2 users from database
+2025-04-28 16:43:13,334 - database - INFO - Using database file: c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:43:13,334 - database - INFO - Loaded existing encryption key from c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\encryption.key
+2025-04-28 16:43:13,351 - database - INFO - Database initialized at c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:47:57,234 - database - INFO - User admin authenticated successfully
+2025-04-28 16:49:22,736 - database - INFO - Using database file: c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:49:22,736 - database - INFO - Loaded existing encryption key from c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\encryption.key
+2025-04-28 16:49:22,737 - database - INFO - Database initialized at c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:49:33,000 - database - INFO - User admin authenticated successfully
+2025-04-28 16:49:35,319 - database - INFO - Retrieved 2 users from database
+2025-04-28 16:49:43,626 - database - INFO - Added new user Adnan11 with role user
+2025-04-28 16:49:43,664 - database - INFO - Retrieved 3 users from database
+2025-04-28 16:49:55,014 - database - WARNING - Authentication attempt for non-existent user Adnan1
+2025-04-28 16:51:49,259 - database - INFO - Using database file: C:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:51:49,259 - database - INFO - Loaded existing encryption key from C:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\encryption.key
+2025-04-28 16:51:49,260 - database - INFO - Database initialized at C:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:51:49,261 - database - INFO - Retrieved 3 users from database
+2025-04-28 16:51:49,265 - database - INFO - Added new user testuser with role user
+2025-04-28 16:51:49,267 - database - INFO - User testuser authenticated successfully
+2025-04-28 16:51:49,267 - database - INFO - User admin authenticated successfully
+2025-04-28 16:51:55,899 - database - INFO - User testuser authenticated successfully
+2025-04-28 16:52:29,380 - database - INFO - Using database file: c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:52:29,381 - database - INFO - Loaded existing encryption key from c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\encryption.key
+2025-04-28 16:52:29,382 - database - INFO - Database initialized at c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:52:35,493 - database - INFO - Using database file: C:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:52:35,493 - database - INFO - Loaded existing encryption key from C:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\encryption.key
+2025-04-28 16:52:35,494 - database - INFO - Database initialized at C:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:53:25,459 - database - INFO - Using database file: c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:53:25,460 - database - INFO - Loaded existing encryption key from c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\encryption.key
+2025-04-28 16:53:25,460 - database - INFO - Database initialized at c:\Users\user\Desktop\Spring2025\Adnan_Kabbani\Adnan_Kabbani\secure\user_credentials.db
+2025-04-28 16:53:35,003 - database - INFO - User admin authenticated successfully
+2025-04-28 16:54:18,477 - database - INFO - User admin authenticated successfully
+2025-04-28 16:55:30,832 - database - INFO - User admin authenticated successfully
+2025-04-28 16:55:36,783 - database - INFO - User admin authenticated successfully
+2025-04-28 16:55:38,018 - database - INFO - User admin authenticated successfully
+2025-04-28 16:56:35,403 - database - INFO - User admin authenticated successfully
+2025-04-28 16:56:50,938 - database - INFO - User admin authenticated successfully

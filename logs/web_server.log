@@ -31,3 +31,7 @@
 2025-04-27 12:03:05,415 - web_server - INFO - Web server starting on 0.0.0.0:5000
 2025-04-27 12:03:18,842 - web_server - INFO - User admin logged in with role admin
 2025-04-27 12:03:34,295 - web_server - INFO - User adnan1 deleted by admin
+2025-04-28 16:49:22,740 - web_server - INFO - Web server starting on 0.0.0.0:5000
+2025-04-28 16:49:33,000 - web_server - INFO - User admin logged in with role admin
+2025-04-28 16:49:43,626 - web_server - INFO - User Adnan11 added with role user by admin
+2025-04-28 16:52:29,386 - web_server - INFO - Web server starting on 0.0.0.0:5000

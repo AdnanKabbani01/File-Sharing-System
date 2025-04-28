@@ -3,3 +3,71 @@
 2025-03-27 15:01:22,241 - server - INFO - Server started on 0.0.0.0:9000
 2025-03-27 15:02:00,281 - server - INFO - Server started on 0.0.0.0:9000
 2025-04-27 12:02:20,790 - server - INFO - Server started on 0.0.0.0:9000
+2025-04-28 16:43:13,352 - server - INFO - Server started on 0.0.0.0:9000
+2025-04-28 16:44:03,703 - server - INFO - New connection from ('127.0.0.1', 52861)
+2025-04-28 16:44:03,704 - server - INFO - Client ('127.0.0.1', 52861) disconnected
+2025-04-28 16:44:03,704 - server - INFO - Connection closed with ('127.0.0.1', 52861)
+2025-04-28 16:47:07,018 - server - INFO - New connection from ('127.0.0.1', 53073)
+2025-04-28 16:47:07,022 - server - INFO - Client ('127.0.0.1', 53073) disconnected
+2025-04-28 16:47:07,022 - server - INFO - Connection closed with ('127.0.0.1', 53073)
+2025-04-28 16:47:57,233 - server - INFO - New connection from ('127.0.0.1', 53136)
+2025-04-28 16:47:57,234 - server - INFO - Client ('127.0.0.1', 53136) authenticated as admin with role admin
+2025-04-28 16:47:57,235 - server - INFO - Client ('127.0.0.1', 53136) disconnected
+2025-04-28 16:47:57,235 - server - INFO - Connection closed with ('127.0.0.1', 53136)
+2025-04-28 16:49:55,014 - server - INFO - New connection from ('127.0.0.1', 53340)
+2025-04-28 16:49:55,015 - server - WARNING - Failed authentication attempt from ('127.0.0.1', 53340)
+2025-04-28 16:49:55,015 - server - INFO - Client ('127.0.0.1', 53340) disconnected
+2025-04-28 16:49:55,015 - server - INFO - Connection closed with ('127.0.0.1', 53340)
+2025-04-28 16:51:55,898 - server - INFO - New connection from ('127.0.0.1', 53462)
+2025-04-28 16:51:55,899 - server - INFO - Client ('127.0.0.1', 53462) authenticated as testuser with role user
+2025-04-28 16:51:55,899 - server - INFO - Client ('127.0.0.1', 53462) disconnected
+2025-04-28 16:51:55,900 - server - INFO - Connection closed with ('127.0.0.1', 53462)
+2025-04-28 16:52:35,495 - server - INFO - Server started on 0.0.0.0:9000
+2025-04-28 16:53:25,461 - server - INFO - Server started on 0.0.0.0:9000
+2025-04-28 16:53:30,281 - server - INFO - New connection from ('127.0.0.1', 53552)
+2025-04-28 16:53:30,283 - server - INFO - Client ('127.0.0.1', 53552) disconnected
+2025-04-28 16:53:30,283 - server - INFO - Connection closed with ('127.0.0.1', 53552)
+2025-04-28 16:53:35,002 - server - INFO - New connection from ('127.0.0.1', 53558)
+2025-04-28 16:53:35,003 - server - INFO - Client ('127.0.0.1', 53558) authenticated as admin with role admin
+2025-04-28 16:53:35,003 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 16:53:35,004 - server - INFO - Client ('127.0.0.1', 53558) disconnected
+2025-04-28 16:53:35,004 - server - INFO - Connection closed with ('127.0.0.1', 53558)
+2025-04-28 16:54:18,476 - server - INFO - New connection from ('127.0.0.1', 53621)
+2025-04-28 16:54:18,477 - server - INFO - Client ('127.0.0.1', 53621) authenticated as admin with role admin
+2025-04-28 16:54:18,477 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 16:54:18,478 - server - INFO - Client ('127.0.0.1', 53621) disconnected
+2025-04-28 16:54:18,478 - server - INFO - Connection closed with ('127.0.0.1', 53621)
+2025-04-28 16:55:12,957 - server - INFO - New connection from ('127.0.0.1', 53659)
+2025-04-28 16:55:12,958 - server - INFO - Client ('127.0.0.1', 53659) disconnected
+2025-04-28 16:55:12,958 - server - INFO - Connection closed with ('127.0.0.1', 53659)
+2025-04-28 16:55:30,831 - server - INFO - New connection from ('127.0.0.1', 53667)
+2025-04-28 16:55:30,832 - server - INFO - Client ('127.0.0.1', 53667) authenticated as admin with role admin
+2025-04-28 16:55:30,832 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 16:55:30,833 - server - INFO - Client ('127.0.0.1', 53667) disconnected
+2025-04-28 16:55:30,833 - server - INFO - Connection closed with ('127.0.0.1', 53667)
+2025-04-28 16:55:36,782 - server - INFO - New connection from ('127.0.0.1', 53669)
+2025-04-28 16:55:36,783 - server - INFO - Client ('127.0.0.1', 53669) authenticated as admin with role admin
+2025-04-28 16:55:36,783 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 16:55:36,784 - server - INFO - Client ('127.0.0.1', 53669) disconnected
+2025-04-28 16:55:36,784 - server - INFO - Connection closed with ('127.0.0.1', 53669)
+2025-04-28 16:55:38,017 - server - INFO - New connection from ('127.0.0.1', 53670)
+2025-04-28 16:55:38,018 - server - INFO - Client ('127.0.0.1', 53670) authenticated as admin with role admin
+2025-04-28 16:55:38,018 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 16:55:38,019 - server - INFO - Client ('127.0.0.1', 53670) disconnected
+2025-04-28 16:55:38,019 - server - INFO - Connection closed with ('127.0.0.1', 53670)
+2025-04-28 16:56:35,402 - server - INFO - New connection from ('127.0.0.1', 53717)
+2025-04-28 16:56:35,403 - server - INFO - Client ('127.0.0.1', 53717) authenticated as admin with role admin
+2025-04-28 16:56:35,403 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 16:56:35,404 - server - INFO - Client ('127.0.0.1', 53717) disconnected
+2025-04-28 16:56:35,404 - server - INFO - Connection closed with ('127.0.0.1', 53717)
+2025-04-28 16:56:36,815 - server - INFO - New connection from ('127.0.0.1', 53718)
+2025-04-28 16:56:36,816 - server - INFO - Client ('127.0.0.1', 53718) disconnected
+2025-04-28 16:56:36,817 - server - INFO - Connection closed with ('127.0.0.1', 53718)
+2025-04-28 16:56:50,938 - server - INFO - New connection from ('127.0.0.1', 53723)
+2025-04-28 16:56:50,938 - server - INFO - Client ('127.0.0.1', 53723) authenticated as admin with role admin
+2025-04-28 16:56:50,939 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 16:56:50,939 - server - INFO - Client ('127.0.0.1', 53723) disconnected
+2025-04-28 16:56:50,939 - server - INFO - Connection closed with ('127.0.0.1', 53723)
+2025-04-28 16:56:51,041 - server - INFO - New connection from ('127.0.0.1', 53724)
+2025-04-28 16:56:51,042 - server - INFO - Client ('127.0.0.1', 53724) disconnected
+2025-04-28 16:56:51,043 - server - INFO - Connection closed with ('127.0.0.1', 53724)

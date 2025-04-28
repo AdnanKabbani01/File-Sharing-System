@@ -1,0 +1,53 @@
+2025-04-28 16:44:03,702 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:44:03,704 - client - INFO - Disconnected from server
+2025-04-28 16:47:07,018 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:47:07,021 - client - ERROR - Error uploading file: Unknown error
+2025-04-28 16:47:07,022 - client - INFO - Disconnected from server
+2025-04-28 16:47:57,233 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:47:57,235 - client - WARNING - Authentication failed
+2025-04-28 16:47:57,235 - client - INFO - Disconnected from server
+2025-04-28 16:49:55,013 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:49:55,015 - client - WARNING - Authentication failed
+2025-04-28 16:49:55,015 - client - INFO - Disconnected from server
+2025-04-28 16:51:55,898 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:51:55,899 - client - WARNING - Authentication failed
+2025-04-28 16:51:55,899 - client - INFO - Disconnected from server
+2025-04-28 16:53:30,281 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:53:30,283 - client - INFO - Disconnected from server
+2025-04-28 16:53:35,002 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:53:35,004 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 16:53:35,004 - client - WARNING - Authentication failed with status: None
+2025-04-28 16:53:35,004 - client - INFO - Disconnected from server
+2025-04-28 16:54:18,476 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:54:18,477 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 16:54:18,478 - client - INFO - Authentication successful. Role: admin
+2025-04-28 16:54:18,478 - client - INFO - Disconnected from server
+2025-04-28 16:55:12,957 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:55:12,958 - client - WARNING - Authentication required
+2025-04-28 16:55:12,958 - client - INFO - Disconnected from server
+2025-04-28 16:55:30,831 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:55:30,832 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 16:55:30,833 - client - INFO - Authentication successful. Role: admin
+2025-04-28 16:55:30,833 - client - INFO - Disconnected from server
+2025-04-28 16:55:36,782 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:55:36,783 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 16:55:36,783 - client - INFO - Authentication successful. Role: admin
+2025-04-28 16:55:36,784 - client - INFO - Disconnected from server
+2025-04-28 16:55:38,017 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:55:38,018 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 16:55:38,018 - client - INFO - Authentication successful. Role: admin
+2025-04-28 16:55:38,019 - client - INFO - Disconnected from server
+2025-04-28 16:56:35,402 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:56:35,404 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 16:56:35,404 - client - INFO - Authentication successful. Role: admin
+2025-04-28 16:56:35,404 - client - INFO - Disconnected from server
+2025-04-28 16:56:36,815 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:56:36,816 - client - WARNING - Authentication required
+2025-04-28 16:56:36,816 - client - INFO - Disconnected from server
+2025-04-28 16:56:50,937 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:56:50,939 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 16:56:50,939 - client - INFO - Authentication successful. Role: admin
+2025-04-28 16:56:50,939 - client - INFO - Disconnected from server
+2025-04-28 16:56:51,041 - client - INFO - Connected to server at localhost:9000
+2025-04-28 16:56:51,042 - client - WARNING - Authentication required
+2025-04-28 16:56:51,042 - client - INFO - Disconnected from server

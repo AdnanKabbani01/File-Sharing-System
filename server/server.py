@@ -97,6 +97,9 @@ class ClientHandler(threading.Thread):
         else:
             response = create_response(STATUS_AUTH_FAILED)
             logger.warning(f"Failed authentication attempt from {self.client_address}")
+            
+        # Debug log to check the response being sent
+        logger.info(f"Sending auth response: {response}")
         send_message(self.client_socket, 'RESPONSE', response)
 
     def handle_upload(self, data):
