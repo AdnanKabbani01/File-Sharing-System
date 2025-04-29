@@ -51,3 +51,51 @@
 2025-04-28 16:56:51,041 - client - INFO - Connected to server at localhost:9000
 2025-04-28 16:56:51,042 - client - WARNING - Authentication required
 2025-04-28 16:56:51,042 - client - INFO - Disconnected from server
+2025-04-28 18:09:10,611 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:09:10,619 - client - INFO - Disconnected from server
+2025-04-28 18:09:13,049 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:09:13,062 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:09:13,063 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:09:13,065 - client - INFO - Disconnected from server
+2025-04-28 18:10:04,299 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:10:04,299 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:10:04,299 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:10:14,897 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:10:14,925 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:10:14,926 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:10:14,930 - client - INFO - Received file list from server (5 files)
+2025-04-28 18:10:50,500 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:10:50,516 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:10:50,516 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:10:50,523 - client - ERROR - File not found on server: file.txt
+2025-04-28 18:10:59,517 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:10:59,533 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:10:59,533 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:10:59,708 - client - INFO - Download successful: get-pip.py (2278988 bytes, 13.79 MB/s)
+2025-04-28 18:11:44,506 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:11:44,506 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:11:44,506 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:11:44,517 - client - INFO - Received file list from server (5 files)
+2025-04-28 18:12:02,676 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:12:02,679 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:12:02,683 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:12:02,824 - client - ERROR - Error during file download: [WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\adnan\\Desktop\\File-Sharing-System\\client\\downloads\\incomplete\\get-pip.py.part' -> 'C:\\Users\\adnan\\Desktop\\File-Sharing-System\\client\\downloads\\get-pip.py'
+2025-04-28 18:13:42,062 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:13:42,063 - client - WARNING - Authentication required
+2025-04-28 18:13:46,562 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:13:46,568 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:13:46,569 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:24:33,791 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:24:33,793 - client - WARNING - Authentication required
+2025-04-28 18:24:37,095 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:24:37,095 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:24:37,095 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:24:39,734 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:24:39,743 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:24:39,744 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:24:39,749 - client - ERROR - File not found on server: get-pip.y
+2025-04-28 18:24:54,114 - client - INFO - Connected to server at localhost:9000
+2025-04-28 18:24:54,120 - client - INFO - Received authentication response: {'command': 'RESPONSE', 'data': {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}}
+2025-04-28 18:24:54,121 - client - INFO - Authentication successful. Role: admin
+2025-04-28 18:24:54,122 - client - INFO - Resuming download of get-pip.py from byte 2278988
+2025-04-28 18:24:54,204 - client - ERROR - Error during file download: [WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\adnan\\Desktop\\File-Sharing-System\\client\\downloads\\incomplete\\get-pip.py.part' -> 'C:\\Users\\adnan\\Desktop\\File-Sharing-System\\client\\downloads\\get-pip.py'

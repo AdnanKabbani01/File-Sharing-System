@@ -71,3 +71,76 @@
 2025-04-28 16:56:51,041 - server - INFO - New connection from ('127.0.0.1', 53724)
 2025-04-28 16:56:51,042 - server - INFO - Client ('127.0.0.1', 53724) disconnected
 2025-04-28 16:56:51,043 - server - INFO - Connection closed with ('127.0.0.1', 53724)
+2025-04-28 18:08:49,998 - server - INFO - Server started on 0.0.0.0:9000
+2025-04-28 18:09:10,611 - server - INFO - New connection from ('127.0.0.1', 54278)
+2025-04-28 18:09:10,619 - server - INFO - Client ('127.0.0.1', 54278) disconnected
+2025-04-28 18:09:10,619 - server - INFO - Connection closed with ('127.0.0.1', 54278)
+2025-04-28 18:09:13,050 - server - INFO - New connection from ('127.0.0.1', 54280)
+2025-04-28 18:09:13,060 - server - INFO - Client ('127.0.0.1', 54280) authenticated as admin with role admin
+2025-04-28 18:09:13,060 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:09:13,065 - server - INFO - Client ('127.0.0.1', 54280) disconnected
+2025-04-28 18:09:13,065 - server - INFO - Connection closed with ('127.0.0.1', 54280)
+2025-04-28 18:10:04,299 - server - INFO - New connection from ('127.0.0.1', 54302)
+2025-04-28 18:10:04,299 - server - INFO - Client ('127.0.0.1', 54302) authenticated as admin with role admin
+2025-04-28 18:10:04,299 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:10:04,322 - server - INFO - Client ('127.0.0.1', 54302) disconnected
+2025-04-28 18:10:04,322 - server - INFO - Connection closed with ('127.0.0.1', 54302)
+2025-04-28 18:10:14,898 - server - INFO - New connection from ('127.0.0.1', 54304)
+2025-04-28 18:10:14,923 - server - INFO - Client ('127.0.0.1', 54304) authenticated as admin with role admin
+2025-04-28 18:10:14,923 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:10:14,930 - server - INFO - Sent file list to ('127.0.0.1', 54304) (5 files)
+2025-04-28 18:10:14,941 - server - INFO - Client ('127.0.0.1', 54304) disconnected
+2025-04-28 18:10:14,943 - server - INFO - Connection closed with ('127.0.0.1', 54304)
+2025-04-28 18:10:50,500 - server - INFO - New connection from ('127.0.0.1', 54325)
+2025-04-28 18:10:50,516 - server - INFO - Client ('127.0.0.1', 54325) authenticated as admin with role admin
+2025-04-28 18:10:50,516 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:10:50,516 - server - WARNING - File not found for download request from ('127.0.0.1', 54325): file.txt
+2025-04-28 18:10:50,524 - server - INFO - Client ('127.0.0.1', 54325) disconnected
+2025-04-28 18:10:50,524 - server - INFO - Connection closed with ('127.0.0.1', 54325)
+2025-04-28 18:10:59,517 - server - INFO - New connection from ('127.0.0.1', 54328)
+2025-04-28 18:10:59,533 - server - INFO - Client ('127.0.0.1', 54328) authenticated as admin with role admin
+2025-04-28 18:10:59,533 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:10:59,566 - server - INFO - Download complete for ('127.0.0.1', 54328): get-pip.py (2278988 bytes, 126.70 MB/s)
+2025-04-28 18:10:59,708 - server - INFO - Client ('127.0.0.1', 54328) disconnected
+2025-04-28 18:10:59,708 - server - INFO - Connection closed with ('127.0.0.1', 54328)
+2025-04-28 18:11:44,506 - server - INFO - New connection from ('127.0.0.1', 54347)
+2025-04-28 18:11:44,506 - server - INFO - Client ('127.0.0.1', 54347) authenticated as admin with role admin
+2025-04-28 18:11:44,506 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:11:44,517 - server - INFO - Sent file list to ('127.0.0.1', 54347) (5 files)
+2025-04-28 18:11:44,525 - server - INFO - Client ('127.0.0.1', 54347) disconnected
+2025-04-28 18:11:44,525 - server - INFO - Connection closed with ('127.0.0.1', 54347)
+2025-04-28 18:12:02,676 - server - INFO - New connection from ('127.0.0.1', 54349)
+2025-04-28 18:12:02,679 - server - INFO - Client ('127.0.0.1', 54349) authenticated as admin with role admin
+2025-04-28 18:12:02,679 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:12:02,718 - server - INFO - Download complete for ('127.0.0.1', 54349): get-pip.py (2278988 bytes, 88.42 MB/s)
+2025-04-28 18:12:02,826 - server - INFO - Client ('127.0.0.1', 54349) disconnected
+2025-04-28 18:12:02,828 - server - INFO - Connection closed with ('127.0.0.1', 54349)
+2025-04-28 18:13:42,062 - server - INFO - New connection from ('127.0.0.1', 54362)
+2025-04-28 18:13:42,064 - server - INFO - Client ('127.0.0.1', 54362) disconnected
+2025-04-28 18:13:42,065 - server - INFO - Connection closed with ('127.0.0.1', 54362)
+2025-04-28 18:13:46,564 - server - INFO - New connection from ('127.0.0.1', 54365)
+2025-04-28 18:13:46,566 - server - INFO - Client ('127.0.0.1', 54365) authenticated as admin with role admin
+2025-04-28 18:13:46,567 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:13:46,573 - server - INFO - Client ('127.0.0.1', 54365) disconnected
+2025-04-28 18:13:46,574 - server - INFO - Connection closed with ('127.0.0.1', 54365)
+2025-04-28 18:24:33,792 - server - INFO - New connection from ('127.0.0.1', 54455)
+2025-04-28 18:24:33,795 - server - INFO - Client ('127.0.0.1', 54455) disconnected
+2025-04-28 18:24:33,795 - server - INFO - Connection closed with ('127.0.0.1', 54455)
+2025-04-28 18:24:37,095 - server - INFO - New connection from ('127.0.0.1', 54459)
+2025-04-28 18:24:37,095 - server - INFO - Client ('127.0.0.1', 54459) authenticated as admin with role admin
+2025-04-28 18:24:37,095 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:24:37,112 - server - INFO - Client ('127.0.0.1', 54459) disconnected
+2025-04-28 18:24:37,112 - server - INFO - Connection closed with ('127.0.0.1', 54459)
+2025-04-28 18:24:39,734 - server - INFO - New connection from ('127.0.0.1', 54460)
+2025-04-28 18:24:39,741 - server - INFO - Client ('127.0.0.1', 54460) authenticated as admin with role admin
+2025-04-28 18:24:39,741 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:24:39,747 - server - WARNING - File not found for download request from ('127.0.0.1', 54460): get-pip.y
+2025-04-28 18:24:39,750 - server - INFO - Client ('127.0.0.1', 54460) disconnected
+2025-04-28 18:24:39,752 - server - INFO - Connection closed with ('127.0.0.1', 54460)
+2025-04-28 18:24:54,114 - server - INFO - New connection from ('127.0.0.1', 54461)
+2025-04-28 18:24:54,119 - server - INFO - Client ('127.0.0.1', 54461) authenticated as admin with role admin
+2025-04-28 18:24:54,119 - server - INFO - Sending auth response: {'status': 'AUTH_SUCCESS', 'data': {'role': 'admin'}}
+2025-04-28 18:24:54,133 - server - INFO - Download complete for ('127.0.0.1', 54461): get-pip.py (2278988 bytes, 0.00 MB/s)
+2025-04-28 18:24:54,206 - server - INFO - Client ('127.0.0.1', 54461) disconnected
+2025-04-28 18:24:54,207 - server - INFO - Connection closed with ('127.0.0.1', 54461)
+2025-04-28 18:26:45,977 - server - INFO - Server started on 0.0.0.0:9000

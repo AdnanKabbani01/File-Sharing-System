@@ -71,3 +71,23 @@
 2025-04-28 16:55:38,018 - database - INFO - User admin authenticated successfully
 2025-04-28 16:56:35,403 - database - INFO - User admin authenticated successfully
 2025-04-28 16:56:50,938 - database - INFO - User admin authenticated successfully
+2025-04-28 18:08:49,981 - database - INFO - Using database file: c:\Users\adnan\Desktop\File-Sharing-System\secure\user_credentials.db
+2025-04-28 18:08:49,981 - database - INFO - Loaded existing encryption key from c:\Users\adnan\Desktop\File-Sharing-System\secure\encryption.key
+2025-04-28 18:08:49,981 - database - INFO - Database initialized at c:\Users\adnan\Desktop\File-Sharing-System\secure\user_credentials.db
+2025-04-28 18:09:13,057 - database - INFO - User admin authenticated successfully
+2025-04-28 18:10:04,299 - database - INFO - User admin authenticated successfully
+2025-04-28 18:10:14,922 - database - INFO - User admin authenticated successfully
+2025-04-28 18:10:50,516 - database - INFO - User admin authenticated successfully
+2025-04-28 18:10:59,533 - database - INFO - User admin authenticated successfully
+2025-04-28 18:11:44,506 - database - INFO - User admin authenticated successfully
+2025-04-28 18:12:02,679 - database - INFO - User admin authenticated successfully
+2025-04-28 18:13:46,566 - database - INFO - User admin authenticated successfully
+2025-04-28 18:24:37,095 - database - INFO - User admin authenticated successfully
+2025-04-28 18:24:39,741 - database - INFO - User admin authenticated successfully
+2025-04-28 18:24:54,118 - database - INFO - User admin authenticated successfully
+2025-04-28 18:26:45,972 - database - INFO - Using database file: c:\Users\adnan\Desktop\File-Sharing-System\secure\user_credentials.db
+2025-04-28 18:26:45,974 - database - INFO - Loaded existing encryption key from c:\Users\adnan\Desktop\File-Sharing-System\secure\encryption.key
+2025-04-28 18:26:45,976 - database - INFO - Database initialized at c:\Users\adnan\Desktop\File-Sharing-System\secure\user_credentials.db
+2025-04-28 18:26:57,291 - database - INFO - Using database file: c:\Users\adnan\Desktop\File-Sharing-System\secure\user_credentials.db
+2025-04-28 18:26:57,292 - database - INFO - Loaded existing encryption key from c:\Users\adnan\Desktop\File-Sharing-System\secure\encryption.key
+2025-04-28 18:26:57,294 - database - INFO - Database initialized at c:\Users\adnan\Desktop\File-Sharing-System\secure\user_credentials.db

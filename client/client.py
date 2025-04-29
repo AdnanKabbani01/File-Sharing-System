@@ -72,7 +72,7 @@ class FileClient:
         # Log the full response to debug
         logger.info(f"Received authentication response: {response}")
         
-        # Fix: Get status from the correct location in the response
+        # Get status from the correct location in the response
         if response.get('command') == 'RESPONSE':
             response_data = response.get('data', {})
             status = response_data.get('status')
@@ -480,29 +480,72 @@ def main():
         if args.command == 'login':
             if client.authenticate(args.username, args.password):
                 print(f"Login successful. Role: {client.role}")
+                # Save authentication state
+                with open('.auth_state', 'w') as f:
+                    f.write(f"{args.username}\n{args.password}")
             else:
                 print("Login failed")
         
         elif args.command == 'list':
+            # Check if we need to authenticate
+            if not client.authenticated and os.path.exists('.auth_state'):
+                with open('.auth_state', 'r') as f:
+                    username, password = f.read().strip().split('\n')
+                    if client.authenticate(username, password):
+                        print(f"Re-authenticated as {username}")
+                    else:
+                        print("Authentication failed")
+                        return
             files = client.list_files()
             if files is not None:
                 print_file_list(files)
         
         elif args.command == 'upload':
+            # Check if we need to authenticate
+            if not client.authenticated and os.path.exists('.auth_state'):
+                with open('.auth_state', 'r') as f:
+                    username, password = f.read().strip().split('\n')
+                    if client.authenticate(username, password):
+                        print(f"Re-authenticated as {username}")
+                    else:
+                        print("Authentication failed")
+                        return
             client.upload_file(args.file, args.overwrite)
         
         elif args.command == 'resume':
+            # Check if we need to authenticate
+            if not client.authenticated and os.path.exists('.auth_state'):
+                with open('.auth_state', 'r') as f:
+                    username, password = f.read().strip().split('\n')
+                    if client.authenticate(username, password):
+                        print(f"Re-authenticated as {username}")
+                    else:
+                        print("Authentication failed")
+                        return
             client.resume_upload(args.file)
         
         elif args.command == 'download':
+            # Check if we need to authenticate
+            if not client.authenticated and os.path.exists('.auth_state'):
+                with open('.auth_state', 'r') as f:
+                    username, password = f.read().strip().split('\n')
+                    if client.authenticate(username, password):
+                        print(f"Re-authenticated as {username}")
+                    else:
+                        print("Authentication failed")
+                        return
             client.download_file(args.file, args.resume)
         
         else:
             parser.print_help()
     
     finally:
-        # Disconnect from server
-        client.disconnect()
+        # Only disconnect if explicitly requested
+        if args.command == 'logout':
+            client.disconnect()
+            if os.path.exists('.auth_state'):
+                os.remove('.auth_state')
+            print("Logged out and disconnected")
 
 if __name__ == "__main__":
     main() 

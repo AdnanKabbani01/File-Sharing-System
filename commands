@@ -1,1 +1,5 @@
-python client/client.py upload pdfexport.pdf
+python client/client.py upload pdfexport.pdf --overwrite
+python client/client.py list
+python client/client.py download file.txt
+python client/client.py download get-pip.y --resume\
+python client/client.py login admin admin123

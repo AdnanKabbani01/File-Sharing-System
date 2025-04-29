@@ -35,30 +35,6 @@ class Database:
         self.cipher = Fernet(self.key)
         self._setup_database()
     
-    def _get_encryption_key(self):
-        """Get or create an encryption key for securing sensitive data"""
-        if os.path.exists(KEY_FILE):
-            with open(KEY_FILE, 'rb') as f:
-                key_data = f.read()
-                logger.info(f"Loaded existing encryption key from {KEY_FILE}")
-                return key_data
-        else:
-            # Generate a new key
-            salt = os.urandom(16)
-            base_key = "FileShareSystemSecretKey".encode()
-            kdf = PBKDF2HMAC(
-                algorithm=hashes.SHA256(),
-                length=32,
-                salt=salt,
-                iterations=100000,
-            )
-            key = base64.urlsafe_b64encode(kdf.derive(base_key))
-            # Save the key to a file with restricted permissions
-            with open(KEY_FILE, 'wb') as f:
-                f.write(key)
-            logger.info(f"Created new encryption key at {KEY_FILE}")
-            return key
-    
     def _setup_database(self):
         """Initialize the SQLite database schema"""
         try:
